@@ -1,0 +1,17 @@
+<div>
+  <mat-card class="mat-elevation-z10">
+    <div fxLayout="row" fxLayoutAlign="space-between  start">
+      <span fxFlexAlign="center"> 
+        {{category.name}}
+      </span>
+
+      <button mat-icon-button  fxFlexAlign="center">
+        <mat-icon aria-label="close" (click)="onDelete(category)">
+          <span class="material-icons" style="color: #f44336;">
+            delete
+          </span></mat-icon>
+      </button>
+    </div>
+
+  </mat-card>
+</div>

@@ -1,0 +1,20 @@
+<div class="bookmark-container">
+  <div class="nav" fxLayout="row" fxLayoutGap="2%">
+    <div fxFlexAlign="center">
+      <button mat-raised-button class="buttom-container" (click)="onCreate()">
+        <span class="material-icons">
+          add
+        </span>Add</button>
+    </div>
+
+    <mat-form-field fxFlex="100%">
+      <input matInput placeholder="Search" required>
+    </mat-form-field>
+
+  </div>
+
+  <div >
+    <app-user-vue [users]="usersData" ></app-user-vue>
+  </div>
+
+</div>

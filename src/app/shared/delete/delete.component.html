@@ -1,0 +1,22 @@
+<mat-toolbar fxLayout="row" fxLayoutGap="2%" class="toobar">
+  <div fxFlex="90%" fxFlexAlign="center"> Delete A {{data.name}}</div>
+  <div fxFlex>
+    <button mat-icon-button color="warn" tabindex="-1" (click)="onClose()">
+      <span class="material-icons" style="color: #f44336;">
+        clear
+      </span>
+    </button>
+  </div>
+
+</mat-toolbar>
+
+<div class="container">
+  <p>Are You Sure To Continue This Operation??</p>
+  <div fxLayout="row" fxLayoutGap="2%" *ngIf="!loading">
+    <button mat-raised-button class="buttom-container" (click)="onConfirm()" type="submit" fxFlex>Yes</button>
+
+    <button mat-raised-button color="warn" (click)="onCancel()" type="button" fxFlex>No</button>
+  </div>
+
+  <app-loading [loading]="loading"></app-loading>
+</div>

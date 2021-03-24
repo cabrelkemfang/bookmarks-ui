@@ -1,0 +1,17 @@
+em {
+  color: brown;
+  font-size: 10px;
+}
+
+.toobar {
+  background-color: #0968bf;
+  color: #fff;
+}
+.toobar div {
+  text-align: center;
+}
+.mat-dialog-container {
+  padding: 0px 0px 20px;
+}
+
+

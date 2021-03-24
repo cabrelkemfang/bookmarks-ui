@@ -1,0 +1,98 @@
+.container3 {
+    background-color: #0968bf;
+    padding: 5% 8%;
+    color: white;
+    font: Acumin Pro;
+}
+.image {
+    /* background-color: blueviolet; */
+    height: 98vh;
+}
+
+.img-container {
+    max-width: 10rem;
+}
+
+.login-container {
+    margin: 20% 0px 0px;
+}
+.sign-container {
+    margin: 5% 0px 0px;
+}
+
+.mat-form-field-subscript-wrapper1 {
+    font-size: 75%;
+    margin-top: 0.66667em;
+    top: calc(100% - 1.79167em);
+}
+mat-spinner {
+    float: right;
+    margin: 0.5rem 0;
+}
+.login-tab {
+    background-color: #0968bf;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #fe8f12;
+}
+
+.mat-tab-labels {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.material-icons {
+    color: #0968bf;
+}
+
+.logo-container {
+    height: 40rem;
+}
+
+.logo {
+    background: #fe8f12;
+    /* padding-bottom: 4%; */
+    font-family: Acumin Pro;
+    color: #ffffff;
+    font-size: 35px;
+    padding: 0px 6% 0% 0px;
+    text-align: right;
+    vertical-align: super;
+    border-bottom-right-radius: 50px;
+}
+
+.mat-form-field-flex {
+    background-color: white;
+    color: black;
+    padding: 0px 10px;
+}
+
+.mat-tab-label {
+    opacity: 1;
+    color: white;
+}
+
+.click-container {
+    cursor: pointer;
+    color: #fe8f12;
+}
+
+.hide-buttom {
+    cursor: pointer;
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: none !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, white) !important;
+}
+
+.buttom-cont {
+    width: 100%;
+    background-color: #fe8f12;
+    color: white;
+    padding-top: 10px;   
+  }

@@ -1,0 +1,55 @@
+mat-card {
+    width: 300px;
+    /* padding: 10px; */
+    margin: 0px 0px 24px;
+}
+
+.material-icons {
+    /* font-size: small; */
+    /* font-size: 15px; */
+}
+
+mat-card-content {
+    height: 60px;
+}
+
+.mat-card-content,
+.mat-card-header .mat-card-title,
+.mat-card-subtitle {
+}
+
+.mat-card-image:first-child {
+    margin-top: -24px;
+    height: 150px;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+}
+
+
+.mat-card-image {
+    /* content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+}
+.responsive {
+    /* width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+    grid-area: image;  */
+}
+
+p {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: "robotoregular", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--cr-text-color);
+}
+
+
+.category{
+    vertical-align: super;
+}

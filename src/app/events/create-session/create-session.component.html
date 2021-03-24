@@ -1,0 +1,55 @@
+<div>
+  <h1>Create Session</h1>
+</div>
+
+<div>
+  <form [formGroup]="newSesionForm" (ngSubmit)="saveSession(newSesionForm.value)">
+
+    <div>
+      <label for="name"> Session Name</label>
+      <input type="text" placeholder="session Name" id="name" formControlName="name" required>
+      <em *ngIf="validatSessionName()">Required</em>
+    </div>
+
+    <div>
+      <label for="presenter">Presenter</label>
+      <input type="text" id="presenter" placeholder="Presenter" formControlName="presenter" required>
+      <em *ngIf="validatPresenter()">Required</em>
+    </div>
+
+    <div>
+      <label for="duration"> Duration</label>
+      <select formControlName="duration" required>
+        <option value="">Select duration</option>
+        <option value="1">Half Hour</option>
+        <option value="2">1 Hour</option>
+        <option value="3">Half Day</option>
+      </select>
+      <em *ngIf="validatDuration()">Required</em>
+    </div>
+
+    <div>
+      <label for="level">Level</label>
+      <select formControlName="level" required>
+        <option value="">Select A level</option>
+        <option value="Beginer"> Beginer</option>
+        <option value="Intermediate"> Intermediate</option>
+        <option value="Advanced"> Advanced </option>
+      </select>
+      <em *ngIf="validatLevel()">Required</em>
+    </div>
+
+    <div>
+      <label for="abstract"> Abstract</label>
+      <textarea name="absatract" id="" cols="5" rows="1" formControlName="abstract" required></textarea>
+      <em *ngIf="validatAbstract()">Required</em>
+    </div>
+
+    <div>
+      <span (mouseenter)="mouseover=true" (mouseleave)="mouseover=false">
+        <button type="submit" [disabled]="newSesionForm.invalid"> Create</button>
+      </span>
+      <button> Cancel</button>
+    </div>
+  </form>
+</div>

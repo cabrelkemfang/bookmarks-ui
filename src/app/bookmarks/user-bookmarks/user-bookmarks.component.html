@@ -1,0 +1,35 @@
+<div class="bookmark-container">
+  <div class="nav" fxLayout="row" fxLayoutGap="2%">
+    <div fxFlexAlign="center" >
+      <button mat-raised-button class="buttom-container" (click)="onCreate()">
+        <span class="material-icons">
+          add
+        </span>Add</button>
+    </div>
+   
+    <mat-form-field fxFlex>
+      <input matInput placeholder="Search" required [(ngModel)]="search" name="search">
+      <button matSuffix mat-icon-button *ngIf="search" (click)="searchBookmark()">
+        <span class="material-icons  blue-icon">
+          search
+        </span>&nbsp;
+      </button>
+    </mat-form-field>
+
+  </div>
+
+  <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
+    *ngIf="!loading">
+    <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
+
+  </div>
+
+  <div *ngIf="bookmarksUser?.data?.length==0" class="loading-container">
+    <p> No Bookmars Available</p>
+  </div>
+
+  <div *ngIf="loading" class="loading-container">
+    <app-loading [loading]="loading"></app-loading>
+  </div>
+
+</div>

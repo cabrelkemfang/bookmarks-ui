@@ -1,0 +1,59 @@
+<mat-toolbar fxLayout="row" fxLayoutGap="2%" class="toobar">
+  <div fxFlex="90%" fxFlexAlign="center"> Create A Bookmarks</div>
+  <div fxFlex>
+    <button mat-icon-button color="warn" tabindex="-1" (click)="onClose()">
+      <span class="material-icons" style="color: #f44336;">
+        clear
+      </span>
+    </button>
+  </div>
+
+</mat-toolbar>
+
+<div class="container">
+  <form fxLayout="column" fxLayoutGap="2%" class="example-form" [formGroup]="bookmarksForm"
+    (ngSubmit)="onSubmit(bookmarksForm.value)">
+
+
+    <mat-form-field fxFlex="48%" fxFlex="48%">
+      <input matInput placeholder="Bookmarks Link" formControlName="link" required>
+      <span matSuffix><span class="material-icons blue-icon">
+          add_link
+        </span>&nbsp;</span>
+      <mat-error> Bookmarks Link Is Required</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field fxFlex="48%">
+      <mat-label>category</mat-label>
+      <mat-select required formControlName="category">
+        <mat-option *ngFor="let category of categoryData" [value]="category.name">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error> Category Is Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="48%">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option selected value="PRIVATE">Private</mat-option>
+        <mat-option value="PUBLIC">Public</mat-option>
+      </mat-select>
+      <mat-error> Bookmarks Status Is Required</mat-error>
+    </mat-form-field>
+
+
+    <div fxLayout="row " fxLayoutGap="2%" fxLayoutAlign="center center" *ngIf="!bookmarksLoging"  *appPermission="['CREATE_POST']">
+
+      <button mat-raised-button class="buttom-container" type="submit" fxFlex="25%" (mouseenter)="mourseEvent=true"
+        (mouseleave)="mourseEvent=false" [disabled]="bookmarksForm.invalid">Create</button>
+
+      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%">Cancel</button>
+
+    </div>
+
+    <app-loading [loading]="bookmarksLoging"></app-loading>
+
+  </form>
+</div>

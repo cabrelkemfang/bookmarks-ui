@@ -1,0 +1,13 @@
+.mat-dialog-container {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.button-container {
+    float: right;
+    transform: scale(1);
+}
+
+.loader {
+    padding: 350px 0px ;
+}

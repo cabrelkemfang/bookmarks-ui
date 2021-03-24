@@ -1,0 +1,15 @@
+curl -X POST \
+'{BASE_URL}/gateway/initialize' \
+-H 'Authorization: Basic cGF5dW5pdF9UU5LTg1MjMtZTEwZDZmMDg1ODk3' \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-H 'x-api-key: d97fe42bc01d26241a4fcd7f972cc85' \
+-d '{
+"total_amount" : "5000",
+"transaction_id" : "7852044502205",
+"return_url" : "https://google.com",
+"description" : "Payunit online payments", //optional
+"currency" : "XAF",
+"purchaseRef" : "65464g646ghdgsdfgs", //optional
+"notify_url" : "https://mysite.callback.com/notify" //optional
+}'

@@ -1,0 +1,43 @@
+<mat-card class="mat-elevation-z10">
+  <div fxLayout="row" class="background-container">
+    <img mat-card-image fxHide.lt-md
+      [src]="bookmark.imageLink ===''? 'assets/images/Grow-Together-logo.png' : bookmark.imageLink" alt="Gt"
+      class="img-container" class="responsive">
+  </div>
+  <mat-card-content>
+
+    <p>
+      {{bookmark.title}}
+    </p>
+  </mat-card-content>
+
+  <mat-card-actions fxLayout="row wap" fxLayoutAlign="space-between none" fxLayoutGap="10px">
+    <div fxFlexAlign="center">
+      <span class="material-icons orange-icon">
+        assignment
+      </span> <span class="category">
+        {{bookmark.category}} 
+      </span>
+    </div>
+    <div fxFlexAlign="center" fxHide.lt-md>
+      <span class="material-icons orange-icon">
+        date_range
+      </span><span class="category"> {{bookmark.createdAt}}</span> 
+    </div>
+    <div fxFlexAlign="center">
+      <button mat-icon-button>
+        <mat-icon aria-label="close" (click)="openBookmark(bookmark.link)">
+          <span class="material-icons blue-icon">
+            fullscreen_exit
+          </span></mat-icon>
+      </button>
+
+      <button mat-icon-button >
+        <mat-icon aria-label="close" (click)="onDelete(bookmark)">
+          <span class="material-icons orange-icon" style="color: #f44336;">
+            delete
+          </span></mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

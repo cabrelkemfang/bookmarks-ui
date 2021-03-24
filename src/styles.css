@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.hoverwell:hover {
+  background-color: #485563;
+  cursor: pointer;
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+  height: 98vh;
+  font-weight: normal;
+  font-family: "robotoregular", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-weight: normal;
+  font-family: "robotoregular", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  margin: 0px 10%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.toast-success {
+  background-color: #51a351;
+}
+.toast-error {
+  background-color: #bd362f;
+}
+.toast-info {
+  background-color: #2f96b4;
+}
+.toast-warning {
+  background-color: #f89406;
+}
+
+snack-bar-container.success {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+snack-bar-container.warn {
+  background-color: #f89406;
+  color: #fff;
+}
+
+snack-bar-container.notification simple-snack-bar {
+  /* font-size: 18px !important;
+  font-weight: bold; */
+}
+
+.blue-icon {
+  color: #0968bf;
+}
+
+.orange-icon {
+  color: #fe8f12;
+}
+
+.buttom-container {
+  width: 100%;
+  background-color: #fe8f12;
+  color: white;
+}
+
+
+
+.tex-align {
+  vertical-align: super;
+}

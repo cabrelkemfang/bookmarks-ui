@@ -1,0 +1,46 @@
+.nav {
+    background-color: #ffffff;
+    padding: 6px 10% 6px 10%;
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0; */
+}
+
+li > a.active {
+    color: white;
+    background-color: #fe8f12;
+    padding: 10px;
+    appearance: inherit;
+}
+
+.img-container {
+    width: 60.33px;
+    height: 38.85px;
+}
+
+li > a {
+    font-family: Acumin Pro;
+    color: #0968bf;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.noHover {
+    pointer-events: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #fe8f12;
+    border-bottom: 2px solid #fe8f12;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    margin: 5px;
+    text-decoration: none;
+}
+

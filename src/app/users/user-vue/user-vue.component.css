@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+}
+
+th.mat-header-cell:last-of-type {
+    padding-right: 0px;
+}
+
+.mat-footer-cell {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.action {
+    /* width: 12%; */
+}
+
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type,
+th.mat-header-cell:last-of-type {
+    padding-right: 0px;
+}
+
+/* 
+th {
+    background-color: #3f51b5;
+    color: #fff;
+} */
+
+.close-icon {
+    color: brown;
+}
+
+.check-icon {
+    color: green;
+}

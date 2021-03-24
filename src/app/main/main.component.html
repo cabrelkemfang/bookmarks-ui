@@ -1,0 +1,73 @@
+<div class="nav" fxLayout="row">
+
+  <div fxFlexAlign="center" fxFlex="10%">
+    <img src="assets/images/Grow-Together-logo.png" alt="Gt" class="img-container">
+  </div>
+
+  <div fxFlex>
+  </div>
+
+  <div fxFlex="50%" fxHide.lt-md>
+    <ul fxLayout="row" fxLayoutAlign="space-between end">
+      <li   *appPermission="['VIEW_USERS']"> 
+        <a [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }" > User</a>
+      </li>
+
+      <li *appPermission="['VIEW_CATEGORIES']">
+        <a [routerLink]="['/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">
+          Category</a>
+      </li>
+
+      <li *appPermission="['ADMIN_VIEW_POST']">
+        <a [routerLink]="['/bookmarks/all']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }"> All
+          Bookmarks</a>
+      </li>
+
+      <li *appPermission="['VIEW_USER_POST']">
+        <a [routerLink]="['/bookmarks']" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact:true }">Bookmarks</a>
+      </li>
+    </ul>
+  </div>
+
+  <div fxFlex="10%" fxFlexAlign="center" fxHide.lt-lg fxShow.lt-md fxHide.gt-sm >
+    <button mat-button class="noHover20" [matMenuTriggerFor]="menu">
+      <span class="material-icons blue-icon">
+        reorder
+      </span>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/users']" *appPermission="['VIEW_USERS']">
+        <span class="material-icons blue-icon">
+          people
+        </span> &nbsp;
+        <span class="tex-align">User</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/category']" *appPermission="['VIEW_CATEGORIES']">
+        <span class="material-icons blue-icon">
+          assignment
+        </span> &nbsp;
+        <span class="tex-align">Category</span>
+      </button>
+
+      <button mat-menu-item [routerLink]="['/bookmarks']" *appPermission="['VIEW_USER_POST']">
+        <span class="material-icons blue-icon">
+          menu_book
+        </span> &nbsp;
+        <span class="tex-align">Bookmarks</span>
+      </button>
+
+      <button mat-menu-item *appPermission="['ADMIN_VIEW_POST']">
+        <span class="material-icons blue-icon">
+          menu_book
+        </span> &nbsp;
+        <span class="tex-align"> All Bookmarks</span>
+      </button>
+    </mat-menu>
+  </div>
+
+
+</div>
+
+<router-outlet></router-outlet>

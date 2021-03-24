@@ -1,0 +1,145 @@
+<div fxLayout="row" fxLayoutGap="2%" class="image">
+  <div fxFlex="60%" fxHide.lt-lg>
+
+    <div fxLayout="row">
+      <div fxFlex="30%" class="logo">
+        <p> Join Us</p>
+      </div>
+      <div fxFlex> </div>
+    </div>
+
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <img src="./assets/images/Logos image.png" alt="logo" class="logo-container">
+    </div>
+
+  </div>
+
+
+  <div fxFlex class="container3">
+
+    <mat-tab-group>
+      <mat-tab label="Login">
+        <form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" fxLayoutGap="10%"
+          class="login-container" @explainerAnim>
+
+          <div fxFlexAlign="center" class="col">
+            <img src="assets/images/Layer.png" alt="GT" class="img-container">
+          </div>
+          <mat-form-field class="col">
+            <input matInput placeholder="Email" type="email" formControlName="email" required>
+            <span matSuffix><span class="material-icons">
+                account_circle
+              </span>&nbsp;</span>
+            <mat-error *ngIf="loginForm.controls.email.hasError('required') ">
+              Email is <strong>required</strong>
+            </mat-error>
+            <!-- <div class="mat-form-field-subscript-wrapper1" *ngIf="mouseHover">
+              Email is <strong>required</strong>
+            </div> -->
+
+            <mat-error *ngIf="loginForm.controls.email.hasError('email')">
+              Email is <strong>Not Valid</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col">
+            <input matInput placeholder="Enter your password" formControlName="password"
+              [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide = !hide" class="hide-buttom">{{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <span (mouseenter)="mouseHover=true" (mouseleave)="mouseHover=false" *ngIf="!loginLoading">
+            <button mat-raised-button type="submit" class="col buttom-cont" [disabled]="loginForm.invalid">Login
+            </button>
+          </span>
+
+          <p class="col" fxFlexAlign="center">Forget Password ?<span class="click-container"> Click Here </span> </p>
+
+        </form>
+        <app-loading [loading]="loginLoading"></app-loading>
+      </mat-tab>
+      <mat-tab label="Sign Up">
+        <form fxLayout="column" fxLayoutGap="10%" class="sign-container" [formGroup]="signInForm"
+          (ngSubmit)="onSignUp(signInForm.value)">
+
+          <div fxFlexAlign="center" class="col">
+            <img src="assets/images/Layer.png" alt="GT" class="img-container">
+          </div>
+
+          <mat-form-field>
+            <input matInput placeholder="Username" type="text" formControlName="name" required>
+            <span matSuffix><span class="material-icons">
+                account_circle
+              </span>&nbsp;</span>
+            <mat-error *ngIf="signInForm.controls.email.hasError('required') ">
+              Username is <strong>required</strong>
+            </mat-error>
+            <!-- <div class="mat-form-field-subscript-wrapper1" *ngIf="mouseHover">
+                Email is <strong>required</strong>
+              </div> -->
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Email" type="email" formControlName="email" required>
+            <span matSuffix><span class="material-icons">
+                mail
+              </span>&nbsp;</span>
+            <mat-error *ngIf="signInForm.controls.email.hasError('required') ">
+              Email is <strong>required</strong>
+            </mat-error>
+
+            <mat-error *ngIf="signInForm.controls.email.hasError('email') ">
+              Email is <strong>Not Valid</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Github" type="text" formControlName="github" required>
+            <span matSuffix><span class="material-icons">
+                device_hub
+              </span>&nbsp;</span>
+            <mat-error *ngIf="signInForm.controls.github.hasError('required') ">
+              Github is <strong>Not Valid</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password"
+              required>
+            <mat-icon matSuffix (click)="hide = !hide" class="hide-buttom">{{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-error *ngIf="signInForm.controls.password.hasError('required') ">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'"
+              formControlName="confirmPassword" required>
+            <mat-icon matSuffix (click)="hide = !hide" class="hide-buttom">{{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-error *ngIf="signInForm.controls.confirmPassword.hasError('required') ">
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutGap="2%" *ngIf="!signupLogin">
+            <button mat-raised-button type="submit" fxFlex="48%" [disabled]="signInForm.invalid"
+              class=" buttom-container">Sign
+              Up</button>
+            <button mat-raised-button color="warn" type="button" fxFlex="48%" (click)="onClear()">Cancel</button>
+          </div>
+
+          <app-loading [loading]="bookmarksLoging"></app-loading>
+
+        </form>
+
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+
+</div>
