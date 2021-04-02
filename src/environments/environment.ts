@@ -14,8 +14,8 @@ export const environment = {
   purchaseRef: '7dg87sfd8adasf8798',
   total_amount: '5000',
   currency: 'XAF',
-  base_url: 'http://localhost:7075/api/bookmarks/v1',
-  base_url1: 'http://localhost:7075',
+  base_url: 'https://bookmarks-api-v1.herokuapp.com/api/bookmarks/v1',
+  base_url1: 'https://bookmarks-api-v1.herokuapp.com',
   grant_type: 'password',
   client_id: 'bootmarks-client-id',
   client_secret: 'bootmarks-client-secret'

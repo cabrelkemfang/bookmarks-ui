@@ -69,7 +69,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
   onLogin(value) {
     this.loginLoading = true;
     this.loginService.login(value).subscribe((data: LoginResponse) => {
@@ -77,7 +76,7 @@ export class LoginComponent implements OnInit {
       this.notificationService.success(":: Login Successfully")
       this.getUserInfo();
       this.loginLoading = false;
-      this.router.navigate([''])
+      this.router.navigate(['/bookmarks'])
     }, (error => {
       this.loginLoading = false;
     }));

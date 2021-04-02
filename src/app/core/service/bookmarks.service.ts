@@ -25,6 +25,10 @@ export class BookmarksService {
     return this.http.get(`${environment.base_url}/admin/post`);
   }
 
+  getPublicBookmarks() {
+    return this.http.get(`${environment.base_url}/post`);
+  }
+
   deleteBookmarks(bookkmarkId) {
     return this.http.delete(`${environment.base_url}/user/post/${bookkmarkId}`);
   }

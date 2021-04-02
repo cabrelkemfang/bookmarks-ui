@@ -1,7 +1,18 @@
 .bookmark-container {
-    padding: 6px 10% 6px 10%;
+    padding: 4% 10% 6px 10%;
 }
 
 .loading-container {
     text-align: center;
+}
+
+.nav2 {
+    /* padding: 6px 10% 6px 10%; */
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the bottom of the page */
+    width: 80%; 
+    /* overflow: hidden; */
+    z-index: 10;
+    text-align: center;
+    color: crimson;/*  */
 }

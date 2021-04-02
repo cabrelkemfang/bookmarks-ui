@@ -1,5 +1,6 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { NotificationService } from '../service/notification.service';
@@ -9,7 +10,10 @@ import { NotificationService } from '../service/notification.service';
 })
 export class ErrorHandlerInterceptorService implements HttpInterceptor {
 
-  constructor(private notificationService: NotificationService) { }
+  constructor(
+    private notificationService: NotificationService,
+    private router: Router
+  ) { }
   /**
  * Intercepts a Http request and adds a default error handler.
  */
@@ -49,6 +53,9 @@ export class ErrorHandlerInterceptorService implements HttpInterceptor {
       } else {
         this.notificationService.warn(response.error.message);
       }
+
+      this.router.navigate(['/login']);
+      localStorage.clear();
 
     } else if (status === 400) {
       if (errors[Object.keys(errors)[0]]) {

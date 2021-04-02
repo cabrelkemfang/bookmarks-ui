@@ -69,8 +69,12 @@ snack-bar-container.notification simple-snack-bar {
   width: 100%;
   background-color: #fe8f12;
   color: white;
+
 }
 
+.bookmark-container {
+  padding: 4% 10% 6px 10%;
+}
 
 
 .tex-align {

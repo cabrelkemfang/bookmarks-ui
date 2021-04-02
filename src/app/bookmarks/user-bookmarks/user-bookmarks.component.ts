@@ -38,9 +38,25 @@ export class UserBookmarksComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getUserBookmarks();
+
+    if (localStorage.getItem('token') === null) {
+
+      this.getPulicBookmarks();
+    } else {
+
+      this.getUserBookmarks();
+    }
   }
 
+  getPulicBookmarks() {
+    this.loading = true;
+    this.bookmarksService.getPublicBookmarks().subscribe((response: DataResponse) => {
+      this.bookmarksUser = new MatTableDataSource(response.data);
+      this.loading = false;
+    }, (error => {
+      this.loading = false;
+    }));
+  }
 
   getUserBookmarks() {
     this.loading = true;

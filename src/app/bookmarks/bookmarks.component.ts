@@ -37,6 +37,7 @@ export class BookmarksComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.getBookmarks();
   }
 

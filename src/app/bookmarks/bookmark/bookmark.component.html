@@ -32,7 +32,7 @@
           </span></mat-icon>
       </button>
 
-      <button mat-icon-button >
+      <button mat-icon-button  *appPermission="['DELETE_POST']" >
         <mat-icon aria-label="close" (click)="onDelete(bookmark)">
           <span class="material-icons orange-icon" style="color: #f44336;">
             delete

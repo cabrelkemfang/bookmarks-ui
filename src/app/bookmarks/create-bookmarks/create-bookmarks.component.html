@@ -44,12 +44,15 @@
     </mat-form-field>
 
 
-    <div fxLayout="row " fxLayoutGap="2%" fxLayoutAlign="center center" *ngIf="!bookmarksLoging"  *appPermission="['CREATE_POST']">
+    <div fxLayout="row " fxLayoutGap="2%" fxLayoutAlign="center center" *ngIf="!bookmarksLoging">
+
 
       <button mat-raised-button class="buttom-container" type="submit" fxFlex="25%" (mouseenter)="mourseEvent=true"
-        (mouseleave)="mourseEvent=false" [disabled]="bookmarksForm.invalid">Create</button>
+        (mouseleave)="mourseEvent=false" [disabled]="bookmarksForm.invalid"
+        *appPermission="['CREATE_POST']">Create</button>
 
-      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%">Cancel</button>
+      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%"
+        *appPermission="['CREATE_POST']">Cancel</button>
 
     </div>
 

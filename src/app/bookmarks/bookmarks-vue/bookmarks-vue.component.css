@@ -9,5 +9,9 @@
 }
 
 .loader {
-    padding: 350px 0px ;
+    padding: 350px 0px;
+}
+
+iframe {
+    z-index: 15;
 }

@@ -1,13 +1,15 @@
-<button mat-icon-button color="warn" tabindex="-1" (click)="onClose()" class="button-container">
-  <span class="material-icons" style="color: #cf281c;">
-    clear
-  </span>
-</button>
 
-<iframe [src]="data.url | safe" height="100%" width="100%" allowfullscreen (load)="myLoadEvent()"
-  [hidden]="loaginBookmarks">
 
-</iframe>
-<div class="loader">
-  <app-loading [loading]="loaginBookmarks"></app-loading>
-</div>
+  <button mat-icon-button color="warn" tabindex="-1" (click)="onClose()" class="button-container">
+    <span class="material-icons" style="color: #cf281c;">
+      clear
+    </span>
+  </button>
+
+  <iframe [src]="data.url | safe" height="100%" width="100%" allowfullscreen (load)="myLoadEvent()"
+    [hidden]="loaginBookmarks">
+
+  </iframe>
+  <div class="loader">
+    <app-loading [loading]="loaginBookmarks"></app-loading>
+  </div>

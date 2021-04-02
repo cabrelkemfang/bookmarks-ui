@@ -1,4 +1,4 @@
-<div class="nav" fxLayout="row">
+<div class="nav" fxLayout="row" >
 
   <div fxFlexAlign="center" fxFlex="10%">
     <img src="assets/images/Grow-Together-logo.png" alt="Gt" class="img-container">
@@ -9,8 +9,8 @@
 
   <div fxFlex="50%" fxHide.lt-md>
     <ul fxLayout="row" fxLayoutAlign="space-between end">
-      <li   *appPermission="['VIEW_USERS']"> 
-        <a [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }" > User</a>
+      <li *appPermission="['VIEW_USERS']">
+        <a [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }"> User</a>
       </li>
 
       <li *appPermission="['VIEW_CATEGORIES']">
@@ -30,7 +30,7 @@
     </ul>
   </div>
 
-  <div fxFlex="10%" fxFlexAlign="center" fxHide.lt-lg fxShow.lt-md fxHide.gt-sm >
+  <div fxFlex="10%" fxFlexAlign="center" fxHide.lt-lg fxShow.lt-md fxHide.gt-sm>
     <button mat-button class="noHover20" [matMenuTriggerFor]="menu">
       <span class="material-icons blue-icon">
         reorder

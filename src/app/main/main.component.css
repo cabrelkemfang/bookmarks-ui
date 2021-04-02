@@ -1,9 +1,11 @@
 .nav {
     background-color: #ffffff;
     padding: 6px 10% 6px 10%;
-    /* position: -webkit-sticky;
-    position: sticky;
-    top: 0; */
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the bottom of the page */
+    width: 100%; /* Full width */
+    /* overflow: hidden; */
+    z-index: 5;
 }
 
 li > a.active {
@@ -43,4 +45,3 @@ a {
     margin: 5px;
     text-decoration: none;
 }
-

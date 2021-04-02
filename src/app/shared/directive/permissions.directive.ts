@@ -22,15 +22,19 @@ export class PermissionDirective {
       return;
     }
 
-    const loginUser = JSON.parse(localStorage.getItem('loginUser'));
-    console.log(loginUser.permissions);
+    let loginUser = JSON.parse(localStorage.getItem('loginUser'));
+    if (loginUser !== null) {
+      
+      console.log(loginUser.permissions);
 
-    const allowed: boolean = loginUser.permissions.filter(role => this.allowedRoles.includes(role)).length > 0;
+      const allowed: boolean = loginUser.permissions.filter(role => this.allowedRoles.includes(role)).length > 0;
 
-    if (allowed) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else {
-      this.viewContainer.clear();
+      if (allowed) {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      } else {
+        this.viewContainer.clear();
+      }
     }
+
   }
 }
