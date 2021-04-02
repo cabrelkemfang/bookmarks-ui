@@ -9,13 +9,14 @@ import { UsersService } from '../../core/service/users.service';
   selector: 'app-create-users',
   templateUrl: './create-users.component.html',
   styleUrls: ['./create-users.component.css'],
-  encapsulation: ViewEncapsulation.None, 
+  encapsulation: ViewEncapsulation.None,
 })
 export class CreateUsersComponent implements OnInit {
 
   adminForm: FormGroup;
   loging: boolean;
-
+  hide: any;
+  roles: any;
   constructor(
     private formBuilder: FormBuilder,
     private usersService: UsersService,
@@ -64,6 +65,10 @@ export class CreateUsersComponent implements OnInit {
       this.loging = false;
       this.onCloseDialog(response.message);
     });
+  }
+
+  onSignUp(value) {
+
   }
 
   initializeForm() {

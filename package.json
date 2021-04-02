@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot --prod"
   },
   "engines": {
     "node": "12.4.0",
@@ -16,6 +16,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.13.0",
     "@angular/animations": "^6.1.10",
     "@angular/cdk": "^6.4.7",
     "@angular/common": "^6.1.0",
@@ -32,15 +33,12 @@
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "ngx-payunit": "0.0.2",
-    "ngx-ui-scroll": "^2.0.0-rc.10",
-    "ngx-virtual-scroller": "^4.0.3",
     "path": "^0.12.7",
     "payunitjs": "^1.0.4",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1102.6",
     "@angular/cli": "~6.2.8",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",

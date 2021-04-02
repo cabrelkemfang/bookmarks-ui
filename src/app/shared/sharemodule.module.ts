@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { MaterialsModule } from 'src/app/shared/materials/materials.module';
 import { DeleteComponent } from './delete/delete.component';
 import { PermissionDirective } from './directive/permissions.directive';
-import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
     FormsModule,
     FlexLayoutModule,
     MaterialsModule,
-    VirtualScrollerModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -25,8 +23,7 @@ import { VirtualScrollerModule } from 'ngx-virtual-scroller';
     MaterialsModule,
     FlexLayoutModule,
     DeleteComponent,
-    PermissionDirective,
-    VirtualScrollerModule
+    PermissionDirective
   ],
   declarations: [
     LoadingComponent,
