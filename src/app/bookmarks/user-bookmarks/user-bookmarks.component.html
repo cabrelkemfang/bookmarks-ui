@@ -1,12 +1,12 @@
 <div class="bookmark-container">
   <div class="nav" fxLayout="row" fxLayoutGap="2%">
-    <div fxFlexAlign="center"  *appPermission="['CREATE_POST']" >
+    <div fxFlexAlign="center" *appPermission="['CREATE_POST']">
       <button mat-raised-button class="buttom-container" (click)="onCreate()">
         <span class="material-icons">
           add
         </span>Add</button>
     </div>
-   
+
     <mat-form-field fxFlex>
       <input matInput placeholder="Search" required [(ngModel)]="search" name="search">
       <button matSuffix mat-icon-button *ngIf="search" (click)="searchBookmark()">
@@ -21,8 +21,9 @@
   <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
     *ngIf="!loading">
     <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
+
     <div class="nav2">
-      <p >Here</p>
+      <p>Here</p>
     </div>
 
   </div>

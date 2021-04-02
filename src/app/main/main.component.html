@@ -1,4 +1,4 @@
-<div class="nav" fxLayout="row" >
+<div class="nav" fxLayout="row">
 
   <div fxFlexAlign="center" fxFlex="10%">
     <img src="assets/images/Grow-Together-logo.png" alt="Gt" class="img-container">
@@ -27,6 +27,10 @@
         <a [routerLink]="['/bookmarks']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true }">Bookmarks</a>
       </li>
+
+      <li *ngIf="isLogin">
+        <a [routerLink]="['/logout']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">Logout</a>
+      </li>
     </ul>
   </div>
 
@@ -38,7 +42,7 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="['/users']" *appPermission="['VIEW_USERS']">
+      <button mat-menu-item [routerLink]="['/users']"  *appPermission="['VIEW_USERS']">
         <span class="material-icons blue-icon">
           people
         </span> &nbsp;
@@ -58,11 +62,19 @@
         <span class="tex-align">Bookmarks</span>
       </button>
 
-      <button mat-menu-item *appPermission="['ADMIN_VIEW_POST']">
+      <button mat-menu-item [routerLink]="['/bookmarks/all']" *appPermission="['ADMIN_VIEW_POST']">
         <span class="material-icons blue-icon">
           menu_book
         </span> &nbsp;
         <span class="tex-align"> All Bookmarks</span>
+      </button>
+
+      <button mat-menu-item [routerLink]="['/logout']" *appPermission="['ADMIN_VIEW_POST']"
+        [ngClass]="{'hide': isLogin }">
+        <span class="material-icons orange-icon">
+          logout
+        </span> &nbsp;
+        <span class="tex-align"> Logout</span>
       </button>
     </mat-menu>
   </div>

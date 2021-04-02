@@ -32,6 +32,7 @@ export class UserBookmarksComponent implements OnInit {
   bookmarksUser: MatTableDataSource<any>;
   loading: boolean;
   search: string;
+
   constructor(
     public dialog: MatDialog,
     private bookmarksService: BookmarksService
@@ -47,6 +48,13 @@ export class UserBookmarksComponent implements OnInit {
       this.getUserBookmarks();
     }
   }
+
+
+  fetchMore(event) {
+    console.log(event);
+    console.log("ok");
+  }
+
 
   getPulicBookmarks() {
     this.loading = true;
