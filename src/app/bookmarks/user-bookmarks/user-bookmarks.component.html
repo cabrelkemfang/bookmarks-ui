@@ -18,10 +18,12 @@
 
   </div>
 
-  <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
-    *ngIf="!loading">
-    <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
-  </div>
+  <cdk-virtual-scroll-viewport itemSize="100" (scrolledIndexChange)="handler($event)">
+    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
+      *ngIf="!loading">
+      <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
+    </div>
+  </cdk-virtual-scroll-viewport>
 
   <div *ngIf="bookmarksUser?.data?.length==0" class="loading-container">
     <p> No Bookmars Available</p>

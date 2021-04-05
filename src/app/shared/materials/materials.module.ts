@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import {
   MatButtonModule,
   MatCardModule,
@@ -18,7 +19,7 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatSnackBarModule,
-  MatTableModule
+  MatTableModule,
 } from '@angular/material';
 
 
@@ -42,7 +43,8 @@ import {
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ScrollingModule
   ],
   exports: [
     MatToolbarModule,
@@ -62,7 +64,8 @@ import {
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ScrollingModule
   ],
   declarations: []
 })

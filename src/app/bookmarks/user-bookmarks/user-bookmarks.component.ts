@@ -103,4 +103,9 @@ export class UserBookmarksComponent implements OnInit {
     }));
   }
 
+  handler(event) {
+    console.log(event);
+
+  }
+
 }
