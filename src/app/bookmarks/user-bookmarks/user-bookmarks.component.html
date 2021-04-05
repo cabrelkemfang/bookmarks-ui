@@ -21,11 +21,6 @@
   <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
     *ngIf="!loading">
     <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
-
-    <div class="nav2">
-      <p>Here</p>
-    </div>
-
   </div>
 
   <div *ngIf="bookmarksUser?.data?.length==0" class="loading-container">

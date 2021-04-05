@@ -6,7 +6,8 @@
 }
 .image {
     /* background-color: blueviolet; */
-    height: 98vh;
+    height: 120vh;
+    overflow: hidden;
 }
 
 .img-container {
@@ -96,3 +97,7 @@ input:-internal-autofill-selected {
     color: white;
     padding-top: 10px;   
   }
+
+  /* mat-tab{
+      overflow: scroll;
+  } */

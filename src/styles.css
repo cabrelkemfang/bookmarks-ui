@@ -13,6 +13,7 @@ html {
   height: 98vh;
   font-weight: normal;
   font-family: "robotoregular", Helvetica, Arial, sans-serif;
+  zoom: 85%; 
 }
 
 body {
