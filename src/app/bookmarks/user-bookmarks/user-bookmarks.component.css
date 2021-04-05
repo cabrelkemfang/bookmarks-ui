@@ -2,24 +2,37 @@
     padding: 4% 8% 6px 8%;
     /* height: 300px;
     */
+    overflow-x: hidden;
 }
 
-virtual-scroller {
-   height: 350px; 
-   overflow-y: auto;
-  }
+cdk-virtual-scroll-viewport {
+    height: 98vh;
+    /* app-bokmarks {
+        height: 100px;
+    } */
+}
 
 .loading-container {
     text-align: center;
 }
 
-.nav2 {
-    /* padding: 6px 10% 6px 10%; */
+.pagination {
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the bottom of the page */
-    width: 80%; 
+    width: 80%;
     /* overflow: hidden; */
     z-index: 10;
     text-align: center;
-    color: crimson;/*  */
+    /* justify-content: center; */
+    /* background-color: brown; */
+    /* background: brown; */
 }
+
+pagination-controls{
+    background-color: brown;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: red;
+  }
+

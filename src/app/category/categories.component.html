@@ -17,20 +17,20 @@
     </mat-form-field>
 
   </div>
+  <cdk-virtual-scroll-viewport itemSize="1">
+    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="categoriesData?.length"
+      *ngIf="!loading">
 
-  <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="categoriesData?.length"
-    *ngIf="!loading">
+      <app-category [category]="category" *cdkVirtualFor="let category of categoriesData"></app-category>
 
-    <app-category [category]="category" *ngFor="let category of categoriesData" ></app-category>
+    </div>
 
-  </div>
+    <div *ngIf="categoriesData?.length==0 || categoriesData== 'undefined'" class="loading-container">
+      <p> No Category Available</p>
+    </div>
 
-  <div *ngIf="categoriesData?.length==0 || categoriesData== 'undefined'" class="loading-container">
-    <p> No Category Available</p>
-  </div>
-
-  <div *ngIf="loading" class="loading-container">
-    <app-loading [loading]="loading"></app-loading>
-  </div>
-
+    <div *ngIf="loading" class="loading-container">
+      <app-loading [loading]="loading"></app-loading>
+    </div>
+  </cdk-virtual-scroll-viewport>
 </div>

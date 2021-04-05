@@ -24,8 +24,6 @@ export class PermissionDirective {
 
     let loginUser = JSON.parse(localStorage.getItem('loginUser'));
     if (loginUser !== null) {
-      
-      console.log(loginUser.permissions);
 
       const allowed: boolean = loginUser.permissions.filter(role => this.allowedRoles.includes(role)).length > 0;
 

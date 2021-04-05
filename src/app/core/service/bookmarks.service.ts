@@ -17,16 +17,19 @@ export class BookmarksService {
     return this.http.post(`${environment.base_url}/user/post`, bookmarksValue);
   }
 
-  getUsersBookmarks() {
-    return this.http.get(`${environment.base_url}/user/post`);
+  getUsersBookmarks(page: number) {
+    const httpParams = new HttpParams().set('page', page.toString());
+    return this.http.get(`${environment.base_url}/user/post`, { params: httpParams });
   }
 
-  getAllBookmarks() {
-    return this.http.get(`${environment.base_url}/admin/post`);
+  getAllBookmarks(page: number) {
+    const httpParams = new HttpParams().set('page', page.toString());
+    return this.http.get(`${environment.base_url}/admin/post`, { params: httpParams });
   }
 
-  getPublicBookmarks() {
-    return this.http.get(`${environment.base_url}/post`);
+  getPublicBookmarks(page: number) {
+    const httpParams = new HttpParams().set('page', page.toString());
+    return this.http.get(`${environment.base_url}/post`, { params: httpParams });
   }
 
   deleteBookmarks(bookkmarkId) {
@@ -34,7 +37,6 @@ export class BookmarksService {
   }
 
   searchBookmarks(searchBy: string) {
-
     const httpParams = new HttpParams().set('searchBy', searchBy);
     return this.http.get(`${environment.base_url}/post/search`, { params: httpParams });
   }

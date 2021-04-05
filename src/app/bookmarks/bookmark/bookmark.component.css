@@ -1,5 +1,5 @@
 mat-card {
-    width: 300px;
+    width: 320px;
     /* padding: 10px; */
     margin: 0px 0px 24px;
 }
@@ -23,7 +23,6 @@ mat-card-content {
     height: 150px;
     /* background-color: rgba(0, 0, 0, 0.6); */
 }
-
 
 .mat-card-image {
     /* content: '';
@@ -49,7 +48,6 @@ p {
     color: var(--cr-text-color);
 }
 
-
-.category{
+.category {
     vertical-align: super;
 }

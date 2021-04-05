@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialsModule } from 'src/app/shared/materials/materials.module';
 import { DeleteComponent } from './delete/delete.component';
 import { PermissionDirective } from './directive/permissions.directive';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { PermissionDirective } from './directive/permissions.directive';
     FormsModule,
     FlexLayoutModule,
     MaterialsModule,
+    NgxPaginationModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -23,7 +25,8 @@ import { PermissionDirective } from './directive/permissions.directive';
     MaterialsModule,
     FlexLayoutModule,
     DeleteComponent,
-    PermissionDirective
+    PermissionDirective,
+    NgxPaginationModule
   ],
   declarations: [
     LoadingComponent,

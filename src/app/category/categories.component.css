@@ -1,4 +1,12 @@
-
 .loading-container {
     text-align: center;
+}
+
+.bookmark-container {
+    /* margin-bottom: 30px; */
+    overflow-x: hidden;
+}
+
+cdk-virtual-scroll-viewport {
+    height: 98vh;
 }

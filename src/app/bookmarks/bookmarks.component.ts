@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { BookmarksService } from 'src/app/core/service/bookmarks.service';
-import { DataResponse } from 'src/app/core/model/response';
+import { Bookmark, DataResponse, PageResult } from 'src/app/core/model/response';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 
 @Component({
@@ -28,23 +28,32 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
 })
 export class BookmarksComponent implements OnInit {
 
-  bookmarksData: MatTableDataSource<any>;
+
+  bookmarksData: Bookmark[];
   loading: boolean;
   search: string;
+  maxValue: number;
+  currentPage = 1;
+  pageSize: number;
+  totalPage: number
+
   constructor(
     public dialog: MatDialog,
     private bookmarksService: BookmarksService
   ) { }
 
   ngOnInit() {
-    
-    this.getBookmarks();
+
+    this.getBookmarks(this.currentPage);
   }
 
-  getBookmarks() {
+  getBookmarks(page: number) {
     this.loading = true;
-    this.bookmarksService.getAllBookmarks().subscribe((response: DataResponse) => {
-      this.bookmarksData = new MatTableDataSource(response.data);
+    this.bookmarksService.getAllBookmarks(page).subscribe((response: PageResult) => {
+      this.bookmarksData = response.data;
+      this.totalPage = response.totalOfItems;
+      this.pageSize = response.size;
+      this.currentPage = response.page;
       this.loading = false;
     }, (error => {
       this.loading = false;
@@ -53,8 +62,8 @@ export class BookmarksComponent implements OnInit {
 
   searchBookmark() {
     this.loading = true;
-    this.bookmarksService.searchBookmarksByAdmin(this.search).subscribe((response: DataResponse) => {
-      this.bookmarksData = new MatTableDataSource(response.data);
+    this.bookmarksService.searchBookmarksByAdmin(this.search).subscribe((response: PageResult) => {
+      this.bookmarksData = response.data;
       this.loading = false;
     }, (error => {
       this.loading = false;
@@ -62,14 +71,14 @@ export class BookmarksComponent implements OnInit {
   }
 
 
-  // searchBookmark(searchBy: string) {
-  //   this.loading = true;
-  //   this.bookmarksService.searchBookmarks(searchBy).subscribe((response: DataResponse) => {
-  //     this.bookmarksData = new MatTableDataSource(response.data);
-  //     this.loading = false;
-  //   }, (error => {
-  //     this.loading = false;
-  //   }));
-  // }
+  getPaginatedData(page: number) {
+    this.getBookmarks(page);
+  }
+
+
+  pageChanged(pageNumber) {
+
+    this.getPaginatedData(pageNumber);
+  }
 
 }

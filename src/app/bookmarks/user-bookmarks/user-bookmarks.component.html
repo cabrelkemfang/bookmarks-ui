@@ -18,19 +18,29 @@
 
   </div>
 
-  <cdk-virtual-scroll-viewport itemSize="100" (scrolledIndexChange)="handler($event)">
-    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.data?.length"
+
+
+  <cdk-virtual-scroll-viewport [itemSize]="100">
+    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksUser?.length"
       *ngIf="!loading">
-      <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser?.data"></app-bokmarks>
+      <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksUser | paginate: { 
+        itemsPerPage: pageSize,
+        currentPage: currentPage,
+        totalItems: totalPage } "> 
+      </app-bokmarks>
     </div>
+
+    <div *ngIf="loading" class="loading-container">
+      <app-loading [loading]="loading"></app-loading>
+    </div>
+
+    <div *ngIf="bookmarksUser?.length==0" class="loading-container">
+      <p> No Bookmars Available</p>
+    </div>
+
   </cdk-virtual-scroll-viewport>
 
-  <div *ngIf="bookmarksUser?.data?.length==0" class="loading-container">
-    <p> No Bookmars Available</p>
+  <div class="pagination">
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
   </div>
-
-  <div *ngIf="loading" class="loading-container">
-    <app-loading [loading]="loading"></app-loading>
-  </div>
-
 </div>

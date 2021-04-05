@@ -1,8 +1,21 @@
-.bookmark-container {
-    padding: 4% 10% 6px 10%;
-    /* margin-bottom: 30px; */
+
+
+cdk-virtual-scroll-viewport {
+    height: 98vh;
 }
 
 .loading-container {
     text-align: center;
+}
+
+.pagination {
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the bottom of the page */
+    width: 80%;
+    /* overflow: hidden; */
+    z-index: 10;
+    text-align: center;
+    /* justify-content: center; */
+    /* background-color: brown; */
+    /* background: brown; */
 }

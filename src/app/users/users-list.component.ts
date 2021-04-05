@@ -23,14 +23,16 @@ export class UsersListComponent implements OnInit {
   getUser() {
     this.userSerice.getUsers().subscribe((response: DataResponse) => {
       this.usersData = new MatTableDataSource(response.data);
-    });
+    }, (error => {
+      // this.loading = false;
+    }));
   }
 
   onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%"; 
+    dialogConfig.width = "60%";
     dialogConfig.position = { top: "5%" };
     // dialogConfig.height = "50%";
 

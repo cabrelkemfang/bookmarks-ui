@@ -19,7 +19,7 @@ export class BookmarkComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log("The Value Have been change ");
+    // console.log("The Value Have been change ");
   }
 
   onDelete(bookmark) {

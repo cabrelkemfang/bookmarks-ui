@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { DataResponse } from 'src/app/core/model/response';
 import { NotificationService } from 'src/app/core/service/notification.service';
 import { UsersService } from '../../core/service/users.service';
-import { MediaChange, MediaService } from '@angular/flex-layout';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 
 
@@ -25,12 +25,12 @@ export class UserVueComponent implements OnInit {
     public dialog: MatDialog,
     private userService: UsersService,
     private notificationService: NotificationService,
-    private mediaObserver: MediaService
+    private mediaObserver:MediaObserver
   ) { }
 
   ngOnInit() {
-    this.mediaSub = this.mediaObserver.subscribe((result: MediaChange) => {
-      console.log(result.mqAlias);
+    this.mediaSub = this.mediaObserver.media$.subscribe((result: MediaChange) => {
+      // console.log(result.mqAlias);
       if (result.mqAlias === "sm" || result.mqAlias === "xs" || result.mqAlias === "sm") {
         this.deleteColunm("createdAt");
         this.deleteColunm("github");
@@ -64,10 +64,6 @@ export class UserVueComponent implements OnInit {
     this.updateStatus(element);
   }
 
-  private delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
 
   getUser() {
     this.userService.getUsers().subscribe((response: DataResponse) => {
@@ -75,7 +71,7 @@ export class UserVueComponent implements OnInit {
     });
   }
 
-  async updateStatus(element) {
+  updateStatus(element) {
     this.userLoging = true;
 
     this.userService.updateUserStatus(element.email, !element.active).subscribe((response: DataResponse) => {
@@ -90,7 +86,7 @@ export class UserVueComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "30%";
-    dialogConfig.position = { top: "5%" }; 
+    dialogConfig.position = { top: "5%" };
     dialogConfig.data = { name: "User", id: user.id };
     const dialogRef = this.dialog.open(DeleteComponent, dialogConfig)
 

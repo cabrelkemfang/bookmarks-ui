@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { MatTableDataSource, MatDialog, MatDialogConfig } from '@angular/material';
-import { DataResponse } from 'src/app/core/model/response';
+import { Bookmark, DataResponse, PageResult } from 'src/app/core/model/response';
 import { BookmarksService } from 'src/app/core/service/bookmarks.service';
 import { CreateBookmarksComponent } from '../create-bookmarks/create-bookmarks.component';
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-user-bookmarks',
@@ -29,9 +30,16 @@ import { CreateBookmarksComponent } from '../create-bookmarks/create-bookmarks.c
 })
 export class UserBookmarksComponent implements OnInit {
 
-  bookmarksUser: MatTableDataSource<any>;
+  bookmarksUser: Bookmark[];
   loading: boolean;
   search: string;
+  maxValue: number;
+  currentPage = 1;
+  pageSize: number;
+  totalPage: number
+  @ViewChild(CdkVirtualScrollViewport)
+  viewport: CdkVirtualScrollViewport;
+
 
   constructor(
     public dialog: MatDialog,
@@ -42,40 +50,49 @@ export class UserBookmarksComponent implements OnInit {
 
     if (localStorage.getItem('token') === null) {
 
-      this.getPulicBookmarks();
+      this.getPulicBookmarks(this.currentPage);
     } else {
 
-      this.getUserBookmarks();
+      this.getUserBookmarks(this.currentPage);
     }
   }
 
 
-  fetchMore(event) {
-    console.log(event);
-    console.log("ok");
-  }
-
-
-  getPulicBookmarks() {
+  getPulicBookmarks(page: number) {
     this.loading = true;
-    this.bookmarksService.getPublicBookmarks().subscribe((response: DataResponse) => {
-      this.bookmarksUser = new MatTableDataSource(response.data);
+    this.bookmarksService.getPublicBookmarks(page).subscribe((response: PageResult) => {
+      this.bookmarksUser = response.data;
+      this.totalPage = response.totalOfItems;
+      this.pageSize = response.size;
+      this.currentPage = response.page;
       this.loading = false;
     }, (error => {
       this.loading = false;
     }));
   }
 
-  getUserBookmarks() {
+  getPaginatedData(page: number) {
+    if (localStorage.getItem('token') === null) {
+
+      this.getPulicBookmarks(page)
+    } else {
+
+      this.getUserBookmarks(this.currentPage);
+    }
+  }
+
+  getUserBookmarks(page: number) {
     this.loading = true;
-    this.bookmarksService.getUsersBookmarks().subscribe((response: DataResponse) => {
-      this.bookmarksUser = new MatTableDataSource(response.data);
+    this.bookmarksService.getUsersBookmarks(page).subscribe((response: PageResult) => {
+      this.bookmarksUser = response.data;
+      this.totalPage = response.totalOfItems;
+      this.pageSize = response.size;
+      this.currentPage = response.page;
       this.loading = false;
     }, (error => {
       this.loading = false;
     }));
   }
-
 
   onCreate() {
     const dialogConfig = new MatDialogConfig();
@@ -88,24 +105,46 @@ export class UserBookmarksComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != " ") {
-        this.getUserBookmarks();
+        this.getUserBookmarks(this.currentPage);
       }
     });
   }
 
   searchBookmark() {
+    if (localStorage.getItem('token') === null) {
+
+      this.searchPublicBookmark();
+    } else {
+
+      this.searchBookmarkByUser();
+    }
+  }
+
+
+  searchBookmarkByUser() {
     this.loading = true;
     this.bookmarksService.searchBookmarksByUser(this.search).subscribe((response: DataResponse) => {
-      this.bookmarksUser = new MatTableDataSource(response.data);
+      this.bookmarksUser = response.data;
       this.loading = false;
     }, (error => {
       this.loading = false;
     }));
   }
 
-  handler(event) {
-    console.log(event);
+  searchPublicBookmark() {
+    this.loading = true;
+    this.bookmarksService.searchBookmarks(this.search).subscribe((response: DataResponse) => {
+      this.bookmarksUser = response.data;
+      this.loading = false;
+    }, (error => {
+      this.loading = false;
+    }));
+  }
 
+  pageChanged(pageNumber) {
+
+    console.log(pageNumber);
+    this.getPaginatedData(pageNumber);
   }
 
 }
