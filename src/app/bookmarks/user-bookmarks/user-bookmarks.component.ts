@@ -143,7 +143,6 @@ export class UserBookmarksComponent implements OnInit {
 
   pageChanged(pageNumber) {
 
-    console.log(pageNumber);
     this.getPaginatedData(pageNumber);
   }
 
