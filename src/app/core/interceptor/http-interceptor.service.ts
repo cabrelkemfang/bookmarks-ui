@@ -18,15 +18,14 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     const token: string = localStorage.getItem('token');
 
-    if (this.route.url.startsWith('/login') && request.method === 'POST') {
-      
+    if (this.route.url.startsWith('/login') && request.method === 'POST' && request.url == "https://bookmarks-api-v1.herokuapp.com/oauth/token") {
+
       request = request.clone({
         setHeaders: {
           'Content-type': 'application/x-www-form-urlencoded; charset=utf-8',
           'Authorization': 'Basic ' + btoa(environment.client_id + ':' + environment.client_secret)
         }
       });
-
 
     } else {
       request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });

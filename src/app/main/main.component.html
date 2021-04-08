@@ -18,7 +18,7 @@
           Category</a>
       </li>
 
-      <li *appPermission="['ADMIN_VIEW_POST']">
+      <li *appPermission="['ADMIN_VIEW_POSTS']">
         <a [routerLink]="['/bookmarks/all']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }"> All
           Bookmarks</a>
       </li>
@@ -62,7 +62,7 @@
         <span class="tex-align">Bookmarks</span>
       </button>
 
-      <button mat-menu-item [routerLink]="['/bookmarks/all']" *appPermission="['ADMIN_VIEW_POST']">
+      <button mat-menu-item [routerLink]="['/bookmarks/all']" *appPermission="['ADMIN_VIEW_POSTS']">
         <span class="material-icons blue-icon">
           menu_book
         </span> &nbsp;

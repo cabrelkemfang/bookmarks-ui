@@ -34,7 +34,7 @@ export class LoginService {
   }
 
   signup(signupData): Observable<any> {
-    return this.http.post('/oauth/sign-up', signupData);
+    return this.http.post(`${environment.base_url}/oauth/sign-up`, signupData);
   }
 
   getUserInfo(): Observable<any> {

@@ -44,9 +44,10 @@ export class ErrorHandlerInterceptorService implements HttpInterceptor {
 
 
     if (status === 401) {
-      // if (response.error.error === "") {
-      //   this.notificationService.warn(response.error.message);
-      // }
+        this.notificationService.warn(response.error.error);
+   
+        localStorage.clear();
+        this.router.navigate(['/login']);
       if (errors[Object.keys(errors)[0]]) {
         let errorArray = errors[Object.keys(errors)[0]];
         this.notificationService.warn(errorArray[0].message);
@@ -54,8 +55,7 @@ export class ErrorHandlerInterceptorService implements HttpInterceptor {
         this.notificationService.warn(response.error.message);
       }
 
-      this.router.navigate(['/login']);
-      localStorage.clear();
+     
 
     } else if (status === 400) {
       if (errors[Object.keys(errors)[0]]) {
