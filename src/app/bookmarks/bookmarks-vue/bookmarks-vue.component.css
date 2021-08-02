@@ -15,3 +15,7 @@
 iframe {
     z-index: 15;
 }
+
+.mat-dialog-container {
+    padding: 10px;
+}

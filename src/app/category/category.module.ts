@@ -5,6 +5,7 @@ import { CategoriesRoutingModule } from './category-router';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CategoriesComponent } from './categories.component';
 import { CategoryComponent } from './category/category.component';
+import { BookmarkCategoryComponent } from './bookmark-category/bookmark-category.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { CategoryComponent } from './category/category.component';
     CreateCategoryComponent,
         CategoriesComponent,
     CategoryComponent,
+    BookmarkCategoryComponent,
   ],
   entryComponents: [CreateCategoryComponent]
 })

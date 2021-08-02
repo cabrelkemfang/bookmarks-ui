@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { BookmarksService } from 'src/app/core/service/bookmarks.service';
 import { Bookmark, DataResponse, PageResult } from 'src/app/core/model/response';
@@ -8,6 +8,7 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
   selector: 'app-bookmarks',
   templateUrl: './bookmarks.component.html',
   styleUrls: ['./bookmarks.component.css'],
+  encapsulation: ViewEncapsulation.None,
   animations: [
 
     trigger('listAnimation', [
@@ -27,7 +28,6 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
   ]
 })
 export class BookmarksComponent implements OnInit {
-
 
   bookmarksData: Bookmark[];
   loading: boolean;
@@ -77,7 +77,6 @@ export class BookmarksComponent implements OnInit {
 
 
   pageChanged(pageNumber) {
-
     this.getPaginatedData(pageNumber);
   }
 

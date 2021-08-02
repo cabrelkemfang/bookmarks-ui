@@ -14,9 +14,9 @@
   <form fxLayout="column" fxLayoutGap="2%" class="example-form" [formGroup]="bookmarksForm"
     (ngSubmit)="onSubmit(bookmarksForm.value)">
 
-
-    <mat-form-field fxFlex="48%" fxFlex="48%">
-      <input matInput placeholder="Bookmarks Link" formControlName="link" required>
+    <mat-form-field fxFlex="48%" fxFlex="48%" appearance="fill">
+      <mat-label>Bookmarks Link</mat-label>
+      <input matInput  formControlName="link" required>
       <span matSuffix><span class="material-icons blue-icon">
           add_link
         </span>&nbsp;</span>
@@ -24,7 +24,7 @@
     </mat-form-field>
 
 
-    <mat-form-field fxFlex="48%">
+    <mat-form-field fxFlex="48%" appearance="fill">
       <mat-label>category</mat-label>
       <mat-select required formControlName="category">
         <mat-option *ngFor="let category of categoryData" [value]="category.name">
@@ -34,7 +34,7 @@
       <mat-error> Category Is Required</mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="48%">
+    <mat-form-field fxFlex="48%" appearance="fill">
       <mat-label>Status</mat-label>
       <mat-select formControlName="status">
         <mat-option selected value="PRIVATE">Private</mat-option>
@@ -46,12 +46,11 @@
 
     <div fxLayout="row " fxLayoutGap="2%" fxLayoutAlign="center center" *ngIf="!bookmarksLoging">
 
-
-      <button mat-raised-button class="buttom-container" type="submit" fxFlex="25%" (mouseenter)="mourseEvent=true"
+      <button mat-raised-button class="buttom-container" type="submit" fxFlex="48%" (mouseenter)="mourseEvent=true"
         (mouseleave)="mourseEvent=false" [disabled]="bookmarksForm.invalid"
         *appPermission="['CREATE_POST']">Create</button>
 
-      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%"
+      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="48%"
         *appPermission="['CREATE_POST']">Cancel</button>
 
     </div>

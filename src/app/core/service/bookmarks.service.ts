@@ -14,40 +14,40 @@ export class BookmarksService {
   }
 
   createBookmarks(bookmarksValue) {
-    return this.http.post(`${environment.base_url}/user/post`, bookmarksValue);
+    return this.http.post(`${environment.base_url}/users/bookmarks`, bookmarksValue);
   }
 
   getUsersBookmarks(page: number) {
     const httpParams = new HttpParams().set('page', page.toString());
-    return this.http.get(`${environment.base_url}/user/post`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/users/bookmarks`, { params: httpParams });
   }
 
   getAllBookmarks(page: number) {
     const httpParams = new HttpParams().set('page', page.toString());
-    return this.http.get(`${environment.base_url}/admin/post`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/admin/bookmarks`, { params: httpParams });
   }
 
   getPublicBookmarks(page: number) {
     const httpParams = new HttpParams().set('page', page.toString());
-    return this.http.get(`${environment.base_url}/post`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/bookmarks`, { params: httpParams });
   }
 
   deleteBookmarks(bookkmarkId) {
-    return this.http.delete(`${environment.base_url}/user/post/${bookkmarkId}`);
+    return this.http.delete(`${environment.base_url}/users/bookmarks/${bookkmarkId}`);
   }
 
   searchBookmarks(searchBy: string) {
     const httpParams = new HttpParams().set('searchBy', searchBy);
-    return this.http.get(`${environment.base_url}/post/search`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/bookmarks/search`, { params: httpParams });
   }
 
   searchBookmarksByAdmin(searchBy: string) {
     const httpParams = new HttpParams().set('searchBy', searchBy);
-    return this.http.get(`${environment.base_url}/admin/post/search`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/admin/bookmarks/search`, { params: httpParams });
   }
 
   searchBookmarksByUser(searchBy: string) {
     const httpParams = new HttpParams().set('searchBy', searchBy);
-    return this.http.get(`${environment.base_url}/user/post/search`, { params: httpParams });
+    return this.http.get(`${environment.base_url}/users/bookmarks/search`, { params: httpParams });
   }
 }

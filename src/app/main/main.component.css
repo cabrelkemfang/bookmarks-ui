@@ -3,9 +3,11 @@
     padding: 6px 8% 6px 8%;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the bottom of the page */
-    width: 100%; /* Full width */
+    width: 99%; /* Full width */
     /* overflow: hidden; */
     z-index: 5;
+    overflow-x: hidden;
+    
 }
 
 li > a.active {
@@ -22,7 +24,8 @@ li > a.active {
 
 li > a {
     font-family: Acumin Pro;
-    color: #0968bf;
+    /* color: #0968bf; */
+     color: #000000;
     font-style: normal;
     font-weight: normal;
 }
@@ -44,4 +47,9 @@ ul {
 a {
     margin: 5px;
     text-decoration: none;
+}
+
+.size {
+    font-size: 1.3em;
+    font-weight: bold;
 }

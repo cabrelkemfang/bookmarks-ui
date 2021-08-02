@@ -17,4 +17,10 @@ em {
 
 .material-icons {
     color: #0968bf;
+    text-align: center;
 }
+
+.mat-raised-button {
+    padding: 0.375em 0.75em 0.375em 0.75em;
+  }
+

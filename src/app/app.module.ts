@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './core/interceptor/http-interceptor.service';
 import { ErrorHandlerInterceptorService } from './core/interceptor/error-handler-interceptor.service';
 import { ShareModule } from './shared/sharemodule.module';
-import { PermissionDirective } from './shared/directive/permissions.directive';
 
 
 @NgModule({

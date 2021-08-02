@@ -1,6 +1,6 @@
 .container3 {
     background-color: #0968bf;
-    padding: 5% 8%;
+    padding: 5% 4% 0px 5%;
     color: white;
     font: Acumin Pro;
 }
@@ -15,10 +15,11 @@
 }
 
 .login-container {
-    margin: 20% 0px 0px;
+    margin: 5% 0px 0px;
 }
 .sign-container {
     margin: 5% 0px 0px;
+    overflow-x: hidden;
 }
 
 .mat-form-field-subscript-wrapper1 {
@@ -91,13 +92,16 @@ input:-internal-autofill-selected {
     color: -internal-light-dark(black, white) !important;
 }
 
-.buttom-cont {
+/* .buttom-cont {
     width: 100%;
     background-color: #fe8f12;
     color: white;
-    padding-top: 10px;   
-  }
+} */
 
-  /* mat-tab{
+/* mat-tab{
       overflow: scroll;
+  } */
+/* 
+  .mat-raised-button {
+    padding: 0.375em 0.75em 0.375em 0.75em;
   } */

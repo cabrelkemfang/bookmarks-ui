@@ -51,3 +51,15 @@ p {
 .category {
     vertical-align: super;
 }
+
+.size {
+    /* font-weight: bold; */
+    color: #626262;
+}
+
+.format {
+    color: rgba(0, 0, 0, 0.87);
+    border: red;
+}
+
+

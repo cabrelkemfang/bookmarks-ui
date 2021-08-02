@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   onLogin(value) {
     this.loginLoading = true;
     this.loginService.login(value).subscribe((data: LoginResponse) => {
-      localStorage.setItem('token', data.access_token);
+      sessionStorage.setItem('token', data.access_token);
       this.getUserInfo();
       this.notificationService.success(":: Login Successfully")
       this.loginLoading = false;
@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
 
   getUserInfo() {
     this.loginService.getUserInfo().subscribe((response: DataResponse) => {
-      localStorage.setItem('loginUser', JSON.stringify(response.data))
+      sessionStorage.setItem('loginUser', JSON.stringify(response.data))
       this.router.navigate(['/bookmarks'])
     }, (error => {
       this.loginLoading = false;

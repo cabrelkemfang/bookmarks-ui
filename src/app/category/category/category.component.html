@@ -5,8 +5,8 @@
         {{category.name}}
       </span>
 
-      <button mat-icon-button  fxFlexAlign="center">
-        <mat-icon aria-label="close" (click)="onDelete(category)">
+      <button mat-icon-button  fxFlexAlign="center"  >
+        <mat-icon aria-label="close" (click)="onDelete(category)" *appPermission="['DELETE_CATEGORY']">
           <span class="material-icons" style="color: #f44336;">
             delete
           </span></mat-icon>

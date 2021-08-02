@@ -11,12 +11,10 @@
 </mat-toolbar>
 
 <div class="container">
-  <p>Are You Sure To Continue This Operation??</p>
+  <p class="text-align-center">Are You Sure To Continue This Operation??</p>
   <div fxLayout="row" fxLayoutGap="2%" *ngIf="!loading">
     <button mat-raised-button class="buttom-container" (click)="onConfirm()" type="submit" fxFlex>Yes</button>
-
     <button mat-raised-button color="warn" (click)="onCancel()" type="button" fxFlex>No</button>
   </div>
-
   <app-loading [loading]="loading"></app-loading>
 </div>

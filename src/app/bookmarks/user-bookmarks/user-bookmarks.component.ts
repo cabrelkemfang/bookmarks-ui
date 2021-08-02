@@ -47,12 +47,9 @@ export class UserBookmarksComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    if (localStorage.getItem('token') === null) {
-
+    if (sessionStorage.getItem('token') === null) {
       this.getPulicBookmarks(this.currentPage);
     } else {
-
       this.getUserBookmarks(this.currentPage);
     }
   }
@@ -72,12 +69,12 @@ export class UserBookmarksComponent implements OnInit {
   }
 
   getPaginatedData(page: number) {
-    if (localStorage.getItem('token') === null) {
+    console.log(page);
 
+    if (sessionStorage.getItem('token') === null) {
       this.getPulicBookmarks(page)
     } else {
-
-      this.getUserBookmarks(this.currentPage);
+      this.getUserBookmarks(page);
     }
   }
 
@@ -111,11 +108,9 @@ export class UserBookmarksComponent implements OnInit {
   }
 
   searchBookmark() {
-    if (localStorage.getItem('token') === null) {
-
+    if (sessionStorage.getItem('token') === null) {
       this.searchPublicBookmark();
     } else {
-
       this.searchBookmarkByUser();
     }
   }
@@ -142,7 +137,6 @@ export class UserBookmarksComponent implements OnInit {
   }
 
   pageChanged(pageNumber) {
-
     this.getPaginatedData(pageNumber);
   }
 

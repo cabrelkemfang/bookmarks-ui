@@ -30,7 +30,7 @@ export class UserVueComponent implements OnInit {
 
   ngOnInit() {
     this.mediaSub = this.mediaObserver.media$.subscribe((result: MediaChange) => {
-      // console.log(result.mqAlias);
+      console.log(result.mqAlias);
       if (result.mqAlias === "sm" || result.mqAlias === "xs" || result.mqAlias === "sm") {
         this.deleteColunm("createdAt");
         this.deleteColunm("github");
@@ -60,7 +60,6 @@ export class UserVueComponent implements OnInit {
   }
 
   onActivate(element) {
-
     this.updateStatus(element);
   }
 

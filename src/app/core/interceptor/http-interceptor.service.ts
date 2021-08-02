@@ -16,9 +16,9 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token: string = localStorage.getItem('token');
+    const token: string = sessionStorage.getItem('token');
 
-    if (this.route.url.startsWith('/login') && request.method === 'POST' && request.url == "https://bookmarks-api-v1.herokuapp.com/oauth/token") {
+    if (this.route.url.startsWith('/login') && request.method === 'POST' && request.url == `${environment.base_url1}/oauth/token`) {
 
       request = request.clone({
         setHeaders: {

@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.isLogin= localStorage.getItem('token');
+    this.isLogin= sessionStorage.getItem('token');
   }
   
 }

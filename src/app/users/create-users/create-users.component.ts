@@ -23,7 +23,6 @@ export class CreateUsersComponent implements OnInit {
     private dialogRef: MatDialogRef<CreateUsersComponent>,
     private notificationService: NotificationService) { }
 
-
   ngOnInit() {
     this.createAdminForm();
   }

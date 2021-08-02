@@ -46,7 +46,7 @@ export class ErrorHandlerInterceptorService implements HttpInterceptor {
     if (status === 401) {
         this.notificationService.warn(response.error.error);
    
-        localStorage.clear();
+        sessionStorage.clear();
         this.router.navigate(['/login']);
       if (errors[Object.keys(errors)[0]]) {
         let errorArray = errors[Object.keys(errors)[0]];

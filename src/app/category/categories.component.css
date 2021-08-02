@@ -6,7 +6,8 @@
     /* margin-bottom: 30px; */
     overflow-x: hidden;
 }
+.mat-raised-button {
+    padding: 0.375em 0.75em 0.375em 0.75em;
+  }
 
-cdk-virtual-scroll-viewport {
-    height: 98vh;
-}
+

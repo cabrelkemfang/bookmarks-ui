@@ -43,8 +43,8 @@ export class BookmarkComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "98%";
-    dialogConfig.height = "95%";
+    dialogConfig.width = "98%"; 
+    dialogConfig.height = "98%";
     // dialogConfig.position = { top: "5%" };
     dialogConfig.data = { url: url }
 

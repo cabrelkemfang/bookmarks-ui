@@ -1,36 +1,50 @@
-<div class="bookmark-container">
-  <div class="nav" fxLayout="row" fxLayoutGap="2%">
-    <div fxFlexAlign="center">
-      <button mat-raised-button class="buttom-container" (click)="onCreate()">
-        <span class="material-icons">
-          add
-        </span>Add</button>
+<div id="page-container">
+
+  <div class="bookmark-container">
+
+    <div fxLayout="row" fxLayoutGap="2%" fxLayout.md="column">
+      <div fxFlex>
+        <div class="nav" fxLayout="row" fxLayoutGap="1%">
+          <div  *appPermission="['CREATE_CATEGORY']">
+            <button mat-raised-button class="buttom-container mat-raised-button" (click)=" onCreate()">
+              <span class="material-icons">
+                add
+              </span></button>
+          </div>
+
+          <mat-form-field fxFlex fxFlex="25%" appearance="fill">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Search" required [(ngModel)]="search" name="search">
+            <button matSuffix mat-icon-button *ngIf="search" (click)="searchCategory()">
+              <span class="material-icons  blue-icon">
+                search
+              </span>&nbsp;
+            </button>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="categoriesData?.length"
+          *ngIf="!loading">
+
+          <app-category [category]="category" *ngFor="let category of categoriesData"></app-category>
+
+        </div>
+
+        <div *ngIf="categoriesData?.length==0 || categoriesData== 'undefined'" class="loading-container">
+          <p> No Category Available</p>
+        </div>
+
+        <div *ngIf="loading" class="loading-container">
+          <app-loading [loading]="loading"></app-loading>
+        </div>
+
+      </div>
+      <div fxFlex="16%" fxFlexAlign="center">
+        <!-- <div fxLayout="row wap" fxLayoutAlign="space-between  start">
+          <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksData"> </app-bokmarks>
+        </div> -->
+      </div>
     </div>
-
-    <mat-form-field fxFlex>
-      <input matInput placeholder="Search" required [(ngModel)]="search" name="search">
-      <button matSuffix mat-icon-button *ngIf="search" (click)="searchCategory()">
-        <span class="material-icons  blue-icon">
-          search
-        </span>&nbsp;
-      </button>
-    </mat-form-field>
-
   </div>
-  <cdk-virtual-scroll-viewport itemSize="1">
-    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="categoriesData?.length"
-      *ngIf="!loading">
-
-      <app-category [category]="category" *cdkVirtualFor="let category of categoriesData"></app-category>
-
-    </div>
-
-    <div *ngIf="categoriesData?.length==0 || categoriesData== 'undefined'" class="loading-container">
-      <p> No Category Available</p>
-    </div>
-
-    <div *ngIf="loading" class="loading-container">
-      <app-loading [loading]="loading"></app-loading>
-    </div>
-  </cdk-virtual-scroll-viewport>
+  <app-footer id="footer"></app-footer>
 </div>

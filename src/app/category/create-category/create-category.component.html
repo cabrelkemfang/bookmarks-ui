@@ -15,8 +15,9 @@
     (ngSubmit)="onSubmit(categoryForm.value)">
 
 
-    <mat-form-field fxFlex="48%" fxFlex="48%">
-      <input matInput placeholder="Category name" formControlName="name" required>
+    <mat-form-field fxFlex="48%" fxFlex="48%" appearance="fill">
+      <mat-label>Category name</mat-label>
+      <input matInput  formControlName="name" required>
 
       <mat-error> Category name Is Required</mat-error>
     </mat-form-field>
@@ -24,9 +25,11 @@
     <div fxLayout="row " fxLayoutGap="2%" fxLayoutAlign="center center" *ngIf="!categorysLoging">
 
       <button mat-raised-button class="buttom-container" type="submit" fxFlex="25%" (mouseenter)="mourseEvent=true"
-        (mouseleave)="mourseEvent=false" [disabled]="categoryForm.invalid">Create</button>
+        (mouseleave)="mourseEvent=false" [disabled]="categoryForm.invalid"
+        *appPermission="['CREATE_CATEGORY']">Create</button>
 
-      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%">Cancel</button>
+      <button mat-raised-button color="warn" (click)="onClear()" type="button" fxFlex="25%"
+        *appPermission="['CREATE_CATEGORY']">Cancel</button>
 
     </div>
 

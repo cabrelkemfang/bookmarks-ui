@@ -1,36 +1,48 @@
-<div class="bookmark-container">
-  <div class="nav" fxLayout="row">
+<div id="page-container">
+  <div class="bookmark-container">
+    <div fxLayout="row" fxLayoutGap="2%" fxLayout.md="column">
 
-    <mat-form-field fxFlex>
-      <input matInput placeholder="Search" required [(ngModel)]="search" name="search">
-      <button matSuffix mat-icon-button *ngIf="search" (click)="searchBookmark()">
-        <span class="material-icons  blue-icon">
-          search
-        </span>&nbsp;
-      </button>
-    </mat-form-field>
+      <div fxFlex>
+        <div fxLayout="row" fxLayoutGap="2%">
+          
+          <mat-form-field fxFlex="25%" class="ridge" appearance="fill">
+            <mat-label>Search</mat-label>
+            <input matInput [(ngModel)]="search" name="search">
+            <button matSuffix mat-icon-button *ngIf="search" (click)="searchBookmark()">
+              <span class="material-icons  blue-icon">
+                search
+              </span>&nbsp;
+            </button>
+          </mat-form-field>
 
+        </div>
+        <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksData?.length"
+          *ngIf="!loading">
+          <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksData | paginate: { 
+          itemsPerPage: pageSize,
+          currentPage: currentPage,
+          totalItems: totalPage } "> </app-bokmarks>
+        </div>
+
+        <div *ngIf="bookmarksData?.length==0" class="loading-container">
+          <p> No Bookmars Available</p>
+        </div>
+
+        <div *ngIf="loading" class="loading-container">
+          <app-loading [loading]="loading"></app-loading>
+        </div>
+
+        <div class="text-align-center" *ngIf="!search">
+          <pagination-controls (pageChange)="pageChanged($event)" class="my-pagination"></pagination-controls>
+        </div>
+      </div>
+
+      <div fxFlex="16%" fxFlexAlign="center" fxHide.md>
+        <!-- <div fxLayout="row wap" fxLayoutAlign="space-between  start">
+        <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksData"> </app-bokmarks>
+      </div> -->
+      </div>
+    </div>
   </div>
-  <cdk-virtual-scroll-viewport itemSize="100  ">
-    <div fxLayout="row wap" fxLayoutAlign="space-between  start" [@listAnimation]="bookmarksData?.length"
-      *ngIf="!loading">
-      <app-bokmarks [bookmark]="bookmark" *ngFor="let bookmark of bookmarksData | paginate: { 
-        itemsPerPage: pageSize,
-        currentPage: currentPage,
-        totalItems: totalPage } "> </app-bokmarks>
-
-    </div>
-
-    <div *ngIf="bookmarksData?.length==0" class="loading-container">
-      <p> No Bookmars Available</p>
-    </div>
-
-    <div *ngIf="loading" class="loading-container">
-      <app-loading [loading]="loading"></app-loading>
-    </div>
-  </cdk-virtual-scroll-viewport>
-
-  <div class="pagination">
-    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
-  </div>
+  <app-footer id="footer"></app-footer>
 </div>

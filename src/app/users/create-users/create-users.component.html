@@ -14,8 +14,9 @@
 
   <form class="sign-container" [formGroup]="adminForm" (ngSubmit)="onSignUp(adminForm.value)">
     <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-lg="column">
-      <mat-form-field fxFlex="48%">
-        <input matInput placeholder="Username" type="text" formControlName="name" required>
+      <mat-form-field fxFlex="48%" appearance="fill">
+        <mat-label>User Name</mat-label>
+        <input matInput type="text" formControlName="name" required>
         <span matSuffix><span class="material-icons blue-icon">
             account_circle
           </span>&nbsp;</span>
@@ -24,8 +25,9 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="48%">
-        <input matInput placeholder="Email" type="email" formControlName="email" required>
+      <mat-form-field fxFlex="48%" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
         <span matSuffix><span class="material-icons blue-icon">
             mail
           </span>&nbsp;</span>
@@ -41,8 +43,9 @@
 
 
     <div fxLayout="row" fxLayoutGap="2%" fxLayout.lt-lg="column">
-      <mat-form-field fxFlex="48%">
-        <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+      <mat-form-field fxFlex="48%" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
         <mat-icon matSuffix (click)="hide = !hide" class="hide-buttom ">{{hide ? 'visibility' : 'visibility_off'}}
         </mat-icon>
         <mat-error *ngIf="adminForm.controls.password.hasError('required') ">
@@ -50,9 +53,9 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="48%">
-        <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'"
-          formControlName="confirmPassword" required>
+      <mat-form-field fxFlex="48%" appearance="fill">
+        <mat-label> Confirm Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
         <mat-icon matSuffix (click)="hide = !hide" class="hide-buttom">{{hide ? 'visibility' : 'visibility_off'}}
         </mat-icon>
         <mat-error *ngIf="adminForm.controls.confirmPassword.hasError('required') ">
@@ -62,7 +65,7 @@
     </div>
 
     <div fxLayout="row" fxLayout.lt-lg="column">
-      <mat-form-field fxFlex="98">
+      <mat-form-field fxFlex="98" appearance="fill">
         <mat-label>Role</mat-label>
         <mat-select required formControlName="role">
           <mat-option *ngFor="let role of roles" [value]="role.name">
@@ -75,9 +78,11 @@
 
 
     <div fxLayout="row" fxLayoutGap="2%" *ngIf="!loging">
-      <button mat-raised-button type="submit" fxFlex="48%" [disabled]="adminForm.invalid" class=" buttom-container">Sign
+      <button mat-raised-button type="submit" fxFlex="48%" [disabled]="adminForm.invalid"
+        class="buttom-container mat-raised-button ">Sign
         Up</button>
-      <button mat-raised-button color="warn" type="button" fxFlex="48%" (click)="onClear()">Cancel</button>
+      <button mat-raised-button color="warn" type="button" fxFlex="48%" (click)="onClear()"
+        class="mat-raised-button ">Cancel</button>
     </div>
 
     <app-loading [loading]="loging"></app-loading>

@@ -7,29 +7,33 @@
   <div fxFlex>
   </div>
 
-  <div fxFlex="50%" fxHide.lt-md>
-    <ul fxLayout="row" fxLayoutAlign="space-between end">
+  <div fxFlex="60%" fxHide.lt-md class="size">
+    <ul fxLayout="row" fxLayoutAlign="space-between center">
       <li *appPermission="['VIEW_USERS']">
         <a [routerLink]="['/users']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }"> User</a>
       </li>
-
-      <li *appPermission="['VIEW_CATEGORIES']">
-        <a [routerLink]="['/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">
-          Category</a>
-      </li>
-
-      <li *appPermission="['ADMIN_VIEW_POSTS']">
+    
+      <li  *appPermission="['ADMIN_VIEW_POST']">
         <a [routerLink]="['/bookmarks/all']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }"> All
           Bookmarks</a>
       </li>
 
-      <li *appPermission="['VIEW_USER_POST']">
+      <li>
         <a [routerLink]="['/bookmarks']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact:true }">Bookmarks</a>
       </li>
 
+      <li>
+        <a [routerLink]="['/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">
+          Category</a>
+      </li>
+
       <li *ngIf="isLogin">
         <a [routerLink]="['/logout']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">Logout</a>
+      </li>
+
+      <li *ngIf="!isLogin">
+        <a [routerLink]="['/login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true }">Login</a>
       </li>
     </ul>
   </div>
@@ -42,7 +46,7 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [routerLink]="['/users']"  *appPermission="['VIEW_USERS']">
+      <button mat-menu-item [routerLink]="['/users']" *appPermission="['VIEW_USERS']">
         <span class="material-icons blue-icon">
           people
         </span> &nbsp;
@@ -62,7 +66,7 @@
         <span class="tex-align">Bookmarks</span>
       </button>
 
-      <button mat-menu-item [routerLink]="['/bookmarks/all']" *appPermission="['ADMIN_VIEW_POSTS']">
+      <button mat-menu-item [routerLink]="['/bookmarks/all']" *appPermission="['ADMIN_VIEW_POST']">
         <span class="material-icons blue-icon">
           menu_book
         </span> &nbsp;
@@ -78,8 +82,6 @@
       </button>
     </mat-menu>
   </div>
-
-
 </div>
 
 <router-outlet></router-outlet>
